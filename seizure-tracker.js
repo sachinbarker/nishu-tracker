@@ -7,7 +7,7 @@ var Duration;
 $(function() {
 
   
-  $(".numbers-row").append('<div class="button">+</div><div class="dec button">-</div><div3 class="Resetbutton">Reset</div3>'); 
+  $(".numbers-row").append('<div1 class="button">+</div1><div2 class="dec button">-</div2><div3 class="Resetbutton">Reset</div3>'); 
   
 
   $(".button").on("click", function() {

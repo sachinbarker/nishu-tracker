@@ -1,8 +1,7 @@
-
 body {
   background: #393939;
   color: white;
-  font: 20px Helvetica, sans-serif;
+  font: 15px Helvetica, sans-serif;
 }
 
 #page-wrap {
@@ -96,7 +95,7 @@ form div4 {
 }
 .button {
   margin: 0 0 0 5px;
-  text-indent: -9999px; 
+  /* text-indent: -9999px; */
   font-size : 30px;
   cursor: pointer;
   width: 40px;
@@ -105,7 +104,6 @@ form div4 {
   text-align: center;
  /* background: url(D:/Technology/html/InputNumberIncrementer/images/buttons.png) no-repeat; 
     */
-    background: url(../buttons.png) no-repeat;
 }
 
 .dec {
