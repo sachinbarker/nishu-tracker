@@ -3,16 +3,29 @@
 
 <head>
 
-	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Nishu Tracker</title>
+    
+    <link rel="stylesheet" href="style.css">
 
-	<link rel="stylesheet" href="style.css">
-
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+        <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+    
     <script src="seizure-tracker.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
     
+    
+
 </head>
 
 <body>
@@ -23,30 +36,57 @@
 
     <p>Head drops counter and tracker</p>
 
-<div>Start Time: <span id="StTime"> </span> </div>
-<div>End Time  : <span id="EndTime"> </span> </div>
-<div>Duration  : <span id="Duration"> </span> </div>
-
-    <form method="post" action="">
+    <form id="trackerForm">
+        <div4>
+            <label1 for="StTime">Start Time:</label1>
+            <input type="text" name="start-time" id="StTime" value="" 
+                   style="text-align:left;font:15px Helvetica, sans-serif;background: #393939;color: white;width: 410px"> 
+        </div4>
+        </br></br>
+        <div4>
+            <label1 for="EndTime">End Time:</label1>
+            <input type="text" name="end-time" id="EndTime" value="" 
+                   style="text-align:left;font:15px Helvetica, sans-serif;background: #393939;color: white;width: 410px"> 
+        </div4>
+        </br></br>
+        <div4>
+            <label1 for="Duration">Duration:</label1>
+            <input type="text" name="duration" id="Duration" value="" 
+                   style="text-align:left;font:15px Helvetica, sans-serif;background: #393939;color: white;width: 50px;padding: 1px 0 0 2px"> 
+        </div4>
+        <div4 style="padding: 2px 0 0 0">           <span id="Durtn"> </span> </div4>
+        </br></br></br>
       <div class="numbers-row">
         <label for="name">Head Drops</label>
-        <input type="text" name="french-hens" id="french-hens" value="0">
+        <input type="text" name="head-drops" id="head-drops" value="0">
       </div>
+    </br></br>
       <div class="numbers-row">
         <label for="name">Jump and Head drops</label>
-        <input type="text" name="turtle-doves" id="turtle-doves" value="0">
+        <input type="text" name="jump-head-drops" id="jump-head-drops" value="0">
       </div>
+    </br></br>
       <div class="numbers-row">
         <label for="name">Jump and NO Head drops</label>
-        <input type="text" name="partridge" id="partridge" value="0">
+        <input type="text" name="jump-no-head-drops" id="jump-no-head-drops" value="0">
       </div>
+    </br>
+
       <div class="button1">
-        <input type="submit" value="Submit" id="submit">
-      </div>
+          <button onclick="SaveForm()">Save</button>
+        <!-- input type="button" value="Save" id="save" onlcick="SaveForm()"> -->
+      </div >
+        <div class="button1">
+        <input type="reset">
+             </div>
+    
     </form>
 
 	</div>
-
+<!--
+<label>Data:</label></br></br>
+<div><span id="Dat1"> Data here: </span> </div>
+-->
 </body>
 
 </html>

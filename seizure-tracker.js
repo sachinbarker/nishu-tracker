@@ -2,31 +2,38 @@ var firstclick = 0;
 var StartTime;
 var EndTime;
 var Duration;
+
     
 $(function() {
 
   
-  $(".numbers-row").append('<div1 class="button">+</div1><div2 class="dec button">-</div2><div3 class="Resetbutton">Reset</div3>'); 
+  $(".numbers-row").append('<div class="button">+</div><div class="dec button">-</div><div3 class="Resetbutton">Reset</div3>'); 
   
 
   $(".button").on("click", function() {
 
     var $button = $(this);
     var oldValue = $button.parent().find("input").val();
+      /*
+document.getElementById("StTime").innerHTML = Date();
+      document.getElementById("EndTime").innerHTML = Date();
+    document.getElementById("Duration").innerHTML = 0;
+      */
   
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
         if (firstclick == 0 ) {
             StartTime = new Date();
             EndTime = new Date();
-            document.getElementById("StTime").innerHTML = StartTime;
-            document.getElementById("EndTime").innerHTML = EndTime;
-            document.getElementById("Duration").innerHTML = 1;
+            document.getElementById("StTime").value = StartTime;
+            document.getElementById("EndTime").value = EndTime;
+            document.getElementById("Duration").value = 1;
+            document.getElementById("Durtn").innerHTML = '0 hours, 0 mins, 0 secs, 1 milliseconds';
             firstclick = 1;
             }
         else {
             EndTime = new Date();
-            document.getElementById("EndTime").innerHTML = EndTime;
+            document.getElementById("EndTime").value = EndTime;
             // the following is to handle cases where the times are on the opposite side of
             // midnight e.g. when you want to get the difference between 11:55 PM and 12:05 AM
             if (EndTime < StartTime) {
@@ -42,8 +49,8 @@ $(function() {
             msec -= mm * 1000 * 60;
             var ss = Math.floor(msec / 1000);
             msec -= ss * 1000;
-            
-            document.getElementById("Duration").innerHTML = hh + ' hours, ' + mm + ' mins, ' + ss + ' secs, ' + msec + ' milliseconds';
+            document.getElementById("Duration").value = Duration;
+            document.getElementById("Durtn").innerHTML = hh + ' hours, ' + mm + ' mins, ' + ss + ' secs, ' + msec + ' milliseconds';
         } 
   	} else if ($button.text() == "-"){
 	   // Don't allow decrementing below zero
@@ -51,8 +58,8 @@ $(function() {
         var newVal = parseFloat(oldValue) - 1;
 	    } else {
         newVal = 0;
-        }
       }
+        }
 
     $button.parent().find("input").val(newVal);
 
@@ -71,3 +78,24 @@ $(function() {
     
 
 });
+    
+function SaveForm (){
+        //alert("Saving data...")
+   
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/1984/',
+        type:'post',
+        data:$("#trackerForm").serializeArray(),
+        success: function(){
+          alert("Data Saved :)")
+            //console.log("Form Data Submitted :)")
+        },
+        error: function(){
+          alert("Error saving data :(")
+            //console.log("There was an error posting :(")
+        }
+    });
+        
+        alert("Submitted")
+    
+    }

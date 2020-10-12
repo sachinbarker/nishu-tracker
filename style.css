@@ -1,12 +1,13 @@
+
 body {
   background: #393939;
   color: white;
-  font: 14px Helvetica, sans-serif;
+  font: 20px Helvetica, sans-serif;
 }
 
 #page-wrap {
-  width: 500px;
-  margin: 100px auto;
+  width: 1000px;
+  margin: 20px auto;
 }
 
 h1 {
@@ -24,6 +25,14 @@ label {
   padding: 5px 10px 0 0;
   width: 250px;
 }
+label1 {
+  font: bold 20px Helvetica, sans-serif;
+  display: block;
+  float: left;
+  text-align: left;
+  padding: 1px 1px 0 0;
+  width: 120px;
+}
 input[type=text] {
   float: left;
   width: 50px;
@@ -31,6 +40,14 @@ input[type=text] {
   padding: 3px 0 0 0;
   text-align: center;
 }
+div4 input[type=text] {
+  float: left;
+  width: 100px;
+  font: bold 20px Helvetica, sans-serif;
+  padding: 0 0 0 0;
+  text-align: center;
+}
+
 form div {
   overflow: hidden;
   margin: 0 0 5px 0;
@@ -56,7 +73,11 @@ form div3 {
     background-color : #B4B4B4; 
     padding: 1px 0 0 2px
 }
+form div4 {
+  margin: 0 0 0 0;
+  padding: 10px 0 0 0
 
+}
 .Resetbutton {
   border : solid 0px #e6b215;
     	border-radius : 8px;
@@ -75,7 +96,7 @@ form div3 {
 }
 .button {
   margin: 0 0 0 5px;
-  /* text-indent: -9999px; */
+  text-indent: -9999px; 
   font-size : 30px;
   cursor: pointer;
   width: 40px;
@@ -84,6 +105,7 @@ form div3 {
   text-align: center;
  /* background: url(D:/Technology/html/InputNumberIncrementer/images/buttons.png) no-repeat; 
     */
+    background: url(../buttons.png) no-repeat;
 }
 
 .dec {
@@ -91,8 +113,9 @@ form div3 {
 }
 
 .button1 {
-  padding: 20px 0 0 250px;
+  padding: 1px 0 0 250px;
   width: 80px;
-  height: 80px;
+  height: 50px;
   font-size : 30px;
+    font: bold;
 }
