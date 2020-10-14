@@ -35,6 +35,17 @@
     <p>Head drops counter and tracker</p>
 
     <form id="trackerForm">
+        
+        <label4 for="save">
+      <div class="button1">
+          <button onclick="SaveForm()" style="font-weight: bold;font-size : 18px;">Save</button>
+        <!-- input type="button" value="Save" id="save" onlcick="SaveForm()"> -->
+      </div >
+        </label4>
+        <div class="button1">
+        <input type="reset" style="font-weight: bold;font-size : 18px;">
+             </div>
+        </br>
         <div4>
             <label1 for="StTime">Start Time:</label1>
             <input type="text" name="start-time" id="StTime" value="" 
@@ -56,8 +67,9 @@
         <div4 style="padding: 1px 0 0 0">           <span1 id="Durtn"> </span1> </div4>
         </br>
     </br>
-        <label3>Head Drops</label3>
-    </br>
+<label for="Head-Drops">
+        <!--<label3>Head Drops</label3>-->
+    <span>Head Drops</span>
     </br>
       <label for="Full">
         <span>Full</span>
@@ -84,9 +96,12 @@
         <input type="text" name="head-drops-sleep" id="head-drops-Sleep" value="0">
       </div5>
       </label>
-    </br></br></br></br></br></br>
-<label3>Head drops after jump</label3>
-</br></br>
+    <!--</br></br></br></br></br></br>-->
+</label>
+
+<label for="jump-Head-Drops">
+<span>Head drops after jump</span>
+</br>
   <label for="Full">
         <span>Full</span>
         <div5 class="numbers-row">
@@ -106,34 +121,33 @@
         <input type="text" name="jump-head-drops-little" id="jump-head-drops-little" value="0">
       </div5>
       </label>
-      <label for="Sleep">
-        <span>Sleep</span>
-        <div5 class="numbers-row">
-        <input type="text" name="jump-head-drops-sleep" id="jump-head-drops-Sleep" value="0">
-      </div5>
-      </label>
-    </br></br></br></br></br></br>
-<label3>Jump and NO Head drops</label3>
-</br></br>
+    <!--</br></br></br></br></br></br>-->
+ </label>
+<label for="jump-noHead-Drops">
+<span>Jump and NO Head drops</span>
+
   <label for="nodrops">
-        <span>Full</span>
+        <span>None</span>
         <div5 class="numbers-row">
         <input type="text" name="jump-no-head-drops" id="jump-no-head-drops" value="0">
       </div5>
       </label>
-      
-    </br></br></br></br></br></br></br></br>
+    <!--</br></br></br></br></br></br></br></br>-->
+</label>
+</br></br></br></br></br></br></br>
+    <input type="radio" id="sleep" name="Occur" value="after-sleep" checked="checked">
+    <label8 for="sleep">After sleep</label8>
+    <input type="radio" id="other" name="Occur" value="Other">
+    <label8 for="other">Other</label8><br>
 
-<label4 for="save">
-      <div class="button1">
-          <button onclick="SaveForm()" style="font-weight: bold;font-size : 20px;">Save1</button>
-        <!-- input type="button" value="Save" id="save" onlcick="SaveForm()"> -->
-      </div >
-  </label4>
-        <div class="button1">
-        <input type="reset" style="font-weight: bold;font-size : 20px;">
-             </div>
-    
+</br></br></br></br></br></br></br></br></br></br>
+
+<label8 for="notes">Notes:</label8></br>
+
+<textarea id="notes" name="notes" rows="4" cols="50">
+Last Sleep duration:
+Went to sleep after episode?
+</textarea>
     </form>
 
 	</div>
