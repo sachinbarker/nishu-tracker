@@ -3,11 +3,10 @@ var StartTime;
 var EndTime;
 var Duration;
 
-    
 $(function() {
 
-  
-  $(".numbers-row").append('<div1 class="button">+</div1><div2 class="dec button">-</div2><div3 class="Resetbutton">Reset</div3>'); 
+  $(".numbers-row").append('<div1 class="button">+</div1><div2 class="dec button">-</div2>'); 
+                           //<div3 class="Resetbutton">Reset</div3>'); 
   
 
   $(".button").on("click", function() {
@@ -22,12 +21,13 @@ document.getElementById("StTime").innerHTML = Date();
   
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
-        if (firstclick == 0 ) {
+        //if (firstclick == 0 ) {
+        if (document.getElementById("StTime").value == "") {
             StartTime = new Date();
             EndTime = new Date();
             document.getElementById("StTime").value = StartTime;
             document.getElementById("EndTime").value = EndTime;
-            document.getElementById("Duration").value = 1;
+            document.getElementById("Duration").value = 1000;
             document.getElementById("Durtn").innerHTML = '0 hours, 0 mins, 0 secs, 1 milliseconds';
             firstclick = 1;
             }
