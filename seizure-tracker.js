@@ -13,6 +13,11 @@ $(function() {
 
     var $button = $(this);
     var oldValue = $button.parent().find("input").val();
+    var Pname = $button.parent().find("input").attr('name');
+      var tothd = document.getElementById("head-drops").value;
+      var totjhd = document.getElementById("jump-head-drops").value;
+      var newhd = tothd;
+      var newjhd = totjhd;
       /*
 document.getElementById("StTime").innerHTML = Date();
       document.getElementById("EndTime").innerHTML = Date();
@@ -21,6 +26,14 @@ document.getElementById("StTime").innerHTML = Date();
   
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
+        
+        switch(Pname.substring(0, 10)){
+            case "head-drops":
+                newhd = parseFloat(tothd) + 1;
+                break;
+            case "jump-head-":
+                newjhd = parseFloat(totjhd) + 1;
+        }
         //if (firstclick == 0 ) {
         if (document.getElementById("StTime").value == "") {
             StartTime = new Date();
@@ -59,9 +72,21 @@ document.getElementById("StTime").innerHTML = Date();
 	    } else {
         newVal = 0;
       }
+            switch(Pname.substring(0, 10)){
+            case "head-drops":
+                if (tothd > 0){newhd = parseFloat(tothd) - 1;}
+                else {newhd = 0;}
+                break;
+            case "jump-head-":
+                if (totjhd > 0){newjhd = parseFloat(totjhd) - 1;}
+                else {newjhd = 0;}
+            }
         }
-
-    $button.parent().find("input").val(newVal);
+      
+      $button.parent().find("input").val(newVal);
+      document.getElementById("head-drops").value = newhd;
+      document.getElementById("jump-head-drops").value = newjhd;
+    
 
   });
     
