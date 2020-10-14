@@ -59,6 +59,13 @@ label8 input[type=text] {
   padding: 0 0 0 0;
   text-align: center;
 }
+label9 {
+  float: left;
+  width: 35px;
+  font: 12px Helvetica, sans-serif;
+  padding: 0 0 0 0;
+  text-align: center;
+}
 
 div4 input[type=text] {
   float: left;

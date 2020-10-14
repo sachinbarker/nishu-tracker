@@ -35,17 +35,6 @@
     <p>Head drops counter and tracker</p>
 
     <form id="trackerForm">
-        
-        <label4 for="save">
-      <div class="button1">
-          <button onclick="SaveForm()" style="font-weight: bold;font-size : 18px;">Save</button>
-        <!-- input type="button" value="Save" id="save" onlcick="SaveForm()"> -->
-      </div >
-        </label4>
-        <div class="button1">
-        <input type="reset" style="font-weight: bold;font-size : 18px;">
-             </div>
-        </br>
         <div4>
             <label1 for="StTime">Start Time:</label1>
             <input type="text" name="start-time" id="StTime" value="" 
@@ -138,18 +127,27 @@
     <!--</br></br></br></br></br></br></br></br>-->
 </label>
 </br></br></br></br></br></br></br>
-    <input type="radio" id="sleep" name="Occured" value="after-sleep" checked="checked">
+    <input type="radio" id="sleep" name="Occur" value="after-sleep" checked="checked">
     <label8 for="sleep">After sleep</label8><br><br>
-    <input type="radio" id="other" name="Occured" value="Other">
+    <input type="radio" id="other" name="Occur" value="Other">
     <label8 for="other">Other</label8><br>
 
-</br></br></br></br></br></br></br>
+</br></br></br></br></br></br>
 
-<label8 for="notes">Notes:</label8></br>
-
+<label9 for="notes">Notes:</label9>
 <textarea id="notes" name="notes" rows="4" cols="50">
 Last Sleep duration: . Went to sleep after episode?
 </textarea>
+</br></br>
+        <label4 for="save">
+      <div class="button1">
+          <button onclick="SaveForm()" style="font-weight: bold;font-size : 18px;">Save</button>
+        <!-- input type="button" value="Save" id="save" onlcick="SaveForm()"> -->
+      </div >
+        </label4>
+        <div class="button1">
+        <input type="reset" style="font-weight: bold;font-size : 18px;">
+             </div>
     </form>
 
 	</div>
