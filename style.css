@@ -20,7 +20,7 @@ label { width: 140px; float: left; margin: 0 5px 0 0; border: 1px solid #ccc;
 padding: 0 0 5px 0;background-color:dimgray;color:white}
 span { display: block; margin: 0 8 3px; font-size: 1em; font-weight: bold; text-align: center;}
 label4 { width: 140px; float: left; margin: 0 5px 0 0; border: 0px solid #ccc;
-padding: 0 0 20px 0;}
+padding: 0 0 1px 90px;}
 label3 {
   font: bold 20px Helvetica, sans-serif;
   display: block;
@@ -131,9 +131,37 @@ form div5 {
 }
 
 .button1 {
-  padding: 1px 0 0 100px;
+  padding: 0 0 0 0;
   width: 80px;
-  height: 50px;
+  height: 25px;
   font-size : 20px;
   font-weight: bold
 }
+
+    input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #ffa500;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
