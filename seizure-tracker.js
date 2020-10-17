@@ -69,9 +69,6 @@ document.getElementById("StTime").innerHTML = Date();
 	   // Don't allow decrementing below zero
       if (oldValue > 0) {
         var newVal = parseFloat(oldValue) - 1;
-	    } else {
-        newVal = 0;
-      }
             switch(Pname.substring(0, 10)){
             case "head-drops":
                 if (tothd > 0){newhd = parseFloat(tothd) - 1;}
@@ -81,6 +78,9 @@ document.getElementById("StTime").innerHTML = Date();
                 if (totjhd > 0){newjhd = parseFloat(totjhd) - 1;}
                 else {newjhd = 0;}
             }
+	    } else {
+        newVal = 0;
+      }
         }
       
       $button.parent().find("input").val(newVal);
