@@ -19,7 +19,7 @@ $(function() {
       var newhd = tothd;
       var newjhd = totjhd;
       var occur = "";
-      var changetime;
+      var notes;
       /*
 document.getElementById("StTime").innerHTML = Date();
       document.getElementById("EndTime").innerHTML = Date();
@@ -33,7 +33,7 @@ document.getElementById("StTime").innerHTML = Date();
           occur = document.getElementById("other").value;
       }
       //console.log("occur= " + occur);
-      
+      notes = document.getElementById("notes").value;
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
         
@@ -79,9 +79,9 @@ document.getElementById("StTime").innerHTML = Date();
 
         
         // save (+) button click data
-                fetch("https://api.apispreadsheets.com/data/2516/", {
+                fetch("https://api.apispreadsheets.com/data/2535/", {
                     method: "POST",
-                    body: JSON.stringify({"data": {"time":EndTime,"action":"+1","type":Pname,"Occured":occur}}),
+                    body: JSON.stringify({"data": {"time":EndTime,"action":"+1","type":Pname,"Occured":occur,"notes":notes}}),
                 }).then(res =>{
                     if (res.status === 201){
                         // SUCCESS
@@ -106,9 +106,9 @@ document.getElementById("StTime").innerHTML = Date();
                 }
           
         // save (-) button click instance data
-                fetch("https://api.apispreadsheets.com/data/2516/", {
+                fetch("https://api.apispreadsheets.com/data/2535/", {
                     method: "POST",
-                    body: JSON.stringify({"data": {"time":new Date(),"action":"-1","type":Pname,"Occured":occur}}),
+                    body: JSON.stringify({"data": {"time":new Date(),"action":"-1","type":Pname,"Occured":occur,"notes":notes}}),
                 }).then(res =>{
                     if (res.status === 201){
                         // SUCCESS
