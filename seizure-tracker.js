@@ -18,8 +18,8 @@ $(function() {
       var totjhd = document.getElementById("jump-head-drops").value;
       var newhd = tothd;
       var newjhd = totjhd;
-      var action = "0";
       var occur = "";
+      var changetime;
       /*
 document.getElementById("StTime").innerHTML = Date();
       document.getElementById("EndTime").innerHTML = Date();
@@ -33,10 +33,6 @@ document.getElementById("StTime").innerHTML = Date();
           occur = document.getElementById("other").value;
       }
       //console.log("occur= " + occur);
-
-      //document.getElementsById("notes").value = occur;
-     // occur = occur & " " & document.getElementsById("other").value;
-      //document.getElementsById("notes").value = occur
       
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
@@ -66,7 +62,7 @@ document.getElementById("StTime").innerHTML = Date();
             if (EndTime < StartTime) {
                 EndTime.setDate(EndTime.getDate() + 1);
             }
-            StartTime = document.getElementById("StTime").value;
+            StartTime = new Date(document.getElementById("StTime").value);
             // duration in milli seconds
             Duration = EndTime - StartTime;
             
@@ -80,6 +76,7 @@ document.getElementById("StTime").innerHTML = Date();
             document.getElementById("Duration").value = Duration;
             document.getElementById("Durtn").innerHTML = hh + ' hours, ' + mm + ' mins, ' + ss + ' secs, ' + msec + ' milliseconds';
         }
+
         
         // save (+) button click data
                 fetch("https://api.apispreadsheets.com/data/2516/", {
@@ -92,9 +89,8 @@ document.getElementById("StTime").innerHTML = Date();
                     else{
                         // ERROR
                     }
-                })
+                }) 
   	} else if ($button.text() == "-"){
-        action = "-1"
 	   // Don't allow decrementing below zero
       if (oldValue > 0) {
         // adjust total counts
@@ -120,7 +116,7 @@ document.getElementById("StTime").innerHTML = Date();
                     else{
                         // ERROR
                     }
-                })
+                }) 
 	    } else {
         newVal = 0;
       }
@@ -129,7 +125,6 @@ document.getElementById("StTime").innerHTML = Date();
       $button.parent().find("input").val(newVal);
       document.getElementById("head-drops").value = newhd;
       document.getElementById("jump-head-drops").value = newjhd;
-      
 
   });
     
