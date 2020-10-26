@@ -18,12 +18,26 @@ $(function() {
       var totjhd = document.getElementById("jump-head-drops").value;
       var newhd = tothd;
       var newjhd = totjhd;
+      var action = "0";
+      var occur = "";
       /*
 document.getElementById("StTime").innerHTML = Date();
       document.getElementById("EndTime").innerHTML = Date();
     document.getElementById("Duration").innerHTML = 0;
       */
-  
+      
+      if (document.getElementById("sleep").checked){
+          occur = document.getElementById("sleep").value;
+      }
+      else {
+          occur = document.getElementById("other").value;
+      }
+      //console.log("occur= " + occur);
+
+      //document.getElementsById("notes").value = occur;
+     // occur = occur & " " & document.getElementsById("other").value;
+      //document.getElementsById("notes").value = occur
+      
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
         
@@ -52,6 +66,7 @@ document.getElementById("StTime").innerHTML = Date();
             if (EndTime < StartTime) {
                 EndTime.setDate(EndTime.getDate() + 1);
             }
+            StartTime = document.getElementById("StTime").value;
             // duration in milli seconds
             Duration = EndTime - StartTime;
             
@@ -64,20 +79,48 @@ document.getElementById("StTime").innerHTML = Date();
             msec -= ss * 1000;
             document.getElementById("Duration").value = Duration;
             document.getElementById("Durtn").innerHTML = hh + ' hours, ' + mm + ' mins, ' + ss + ' secs, ' + msec + ' milliseconds';
-        } 
+        }
+        
+        // save (+) button click data
+                fetch("https://api.apispreadsheets.com/data/2516/", {
+                    method: "POST",
+                    body: JSON.stringify({"data": {"time":EndTime,"action":"+1","type":Pname,"Occured":occur}}),
+                }).then(res =>{
+                    if (res.status === 201){
+                        // SUCCESS
+                    }
+                    else{
+                        // ERROR
+                    }
+                })
   	} else if ($button.text() == "-"){
+        action = "-1"
 	   // Don't allow decrementing below zero
       if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
-            switch(Pname.substring(0, 10)){
-            case "head-drops":
-                if (tothd > 0){newhd = parseFloat(tothd) - 1;}
-                else {newhd = 0;}
-                break;
-            case "jump-head-":
-                if (totjhd > 0){newjhd = parseFloat(totjhd) - 1;}
-                else {newjhd = 0;}
-            }
+        // adjust total counts
+            var newVal = parseFloat(oldValue) - 1;
+                switch(Pname.substring(0, 10)){
+                case "head-drops":
+                    if (tothd > 0){newhd = parseFloat(tothd) - 1;}
+                    else {newhd = 0;}
+                    break;
+                case "jump-head-":
+                    if (totjhd > 0){newjhd = parseFloat(totjhd) - 1;}
+                    else {newjhd = 0;}
+                }
+          
+        // save (-) button click instance data
+                fetch("https://api.apispreadsheets.com/data/2516/", {
+                    method: "POST",
+                    body: JSON.stringify({"data": {"time":new Date(),"action":"-1","type":Pname,"Occured":occur}}),
+                }).then(res =>{
+                    if (res.status === 201){
+                        // SUCCESS
+                    }
+                    else{
+                        // ERROR
+                    }
+                })
 	    } else {
         newVal = 0;
       }
@@ -86,7 +129,7 @@ document.getElementById("StTime").innerHTML = Date();
       $button.parent().find("input").val(newVal);
       document.getElementById("head-drops").value = newhd;
       document.getElementById("jump-head-drops").value = newjhd;
-    
+      
 
   });
     
