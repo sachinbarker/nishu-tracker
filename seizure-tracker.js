@@ -20,6 +20,7 @@ $(function() {
       var newjhd = totjhd;
       var occur = "";
       var notes;
+      var stEpisode;
       /*
 document.getElementById("StTime").innerHTML = Date();
       document.getElementById("EndTime").innerHTML = Date();
@@ -33,6 +34,15 @@ document.getElementById("StTime").innerHTML = Date();
           occur = document.getElementById("other").value;
       }
       //console.log("occur= " + occur);
+      
+        if (document.getElementById("episodestart").checked){
+          stEpisode = document.getElementById("episodestart").value;
+      }
+      else {
+          stEpisode = 'N'
+      }
+      console.log("stEpisode= " + stEpisode);
+      
       notes = document.getElementById("notes").value;
     if ($button.text() == "+") {
   	  var newVal = parseFloat(oldValue) + 1;
@@ -77,11 +87,11 @@ document.getElementById("StTime").innerHTML = Date();
             document.getElementById("Durtn").innerHTML = hh + ' hours, ' + mm + ' mins, ' + ss + ' secs, ' + msec + ' milliseconds';
         }
 
-        
+        /*
         // save (+) button click data
                 fetch("https://api.apispreadsheets.com/data/2535/", {
                     method: "POST",
-                    body: JSON.stringify({"data": {"time":EndTime,"action":"+1","type":Pname,"Occured":occur,"notes":notes}}),
+                    body: JSON.stringify({"data": {"time":EndTime,"action":"+1","type":Pname,"Occured":occur,"episodestart":stEpisode,"notes":notes}}),
                 }).then(res =>{
                     if (res.status === 201){
                         // SUCCESS
@@ -89,7 +99,7 @@ document.getElementById("StTime").innerHTML = Date();
                     else{
                         // ERROR
                     }
-                }) 
+                }) */
   	} else if ($button.text() == "-"){
 	   // Don't allow decrementing below zero
       if (oldValue > 0) {
@@ -104,11 +114,11 @@ document.getElementById("StTime").innerHTML = Date();
                     if (totjhd > 0){newjhd = parseFloat(totjhd) - 1;}
                     else {newjhd = 0;}
                 }
-          
+          /*
         // save (-) button click instance data
                 fetch("https://api.apispreadsheets.com/data/2535/", {
                     method: "POST",
-                    body: JSON.stringify({"data": {"time":new Date(),"action":"-1","type":Pname,"Occured":occur,"notes":notes}}),
+                body: JSON.stringify({"data": {"time":new Date(),"action":"-1","type":Pname,"Occured":occur,"episodestart":stEpisode,"notes":notes}}),
                 }).then(res =>{
                     if (res.status === 201){
                         // SUCCESS
@@ -116,7 +126,7 @@ document.getElementById("StTime").innerHTML = Date();
                     else{
                         // ERROR
                     }
-                }) 
+                }) */
 	    } else {
         newVal = 0;
       }
@@ -125,6 +135,7 @@ document.getElementById("StTime").innerHTML = Date();
       $button.parent().find("input").val(newVal);
       document.getElementById("head-drops").value = newhd;
       document.getElementById("jump-head-drops").value = newjhd;
+      document.getElementById("episodestart").checked = false;
 
   });
     
