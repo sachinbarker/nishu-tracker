@@ -87,7 +87,7 @@ document.getElementById("StTime").innerHTML = Date();
             document.getElementById("Durtn").innerHTML = hh + ' hours, ' + mm + ' mins, ' + ss + ' secs, ' + msec + ' milliseconds';
         }
 
-        /*
+        
         // save (+) button click data
                 fetch("https://api.apispreadsheets.com/data/2535/", {
                     method: "POST",
@@ -99,7 +99,7 @@ document.getElementById("StTime").innerHTML = Date();
                     else{
                         // ERROR
                     }
-                }) */
+                }) 
   	} else if ($button.text() == "-"){
 	   // Don't allow decrementing below zero
       if (oldValue > 0) {
@@ -114,7 +114,7 @@ document.getElementById("StTime").innerHTML = Date();
                     if (totjhd > 0){newjhd = parseFloat(totjhd) - 1;}
                     else {newjhd = 0;}
                 }
-          /*
+          
         // save (-) button click instance data
                 fetch("https://api.apispreadsheets.com/data/2535/", {
                     method: "POST",
@@ -126,7 +126,7 @@ document.getElementById("StTime").innerHTML = Date();
                     else{
                         // ERROR
                     }
-                }) */
+                }) 
 	    } else {
         newVal = 0;
       }
