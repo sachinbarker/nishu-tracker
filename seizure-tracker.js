@@ -89,7 +89,8 @@ document.getElementById("StTime").innerHTML = Date();
 
         
         // save (+) button click data
-                fetch("https://api.apispreadsheets.com/data/2535/", {
+                //fetch("https://api.apispreadsheets.com/data/2535/", {
+		fetch("https://api.apispreadsheets.com/data/5278/", {
                     method: "POST",
                     body: JSON.stringify({"data": {"time":EndTime,"action":"+1","type":Pname,"Occured":occur,"episodestart":stEpisode,"notes":notes}}),
                 }).then(res =>{
@@ -117,7 +118,8 @@ document.getElementById("StTime").innerHTML = Date();
                 }
           
         // save (-) button click instance data
-                fetch("https://api.apispreadsheets.com/data/2535/", {
+                //fetch("https://api.apispreadsheets.com/data/2535/", {
+		fetch("https://api.apispreadsheets.com/data/5278/", {
                     method: "POST",
                 body: JSON.stringify({"data": {"time":new Date(),"action":"-1","type":Pname,"Occured":occur,"episodestart":stEpisode,"notes":notes}}),
                 }).then(res =>{
