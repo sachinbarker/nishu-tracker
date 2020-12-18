@@ -98,6 +98,7 @@ document.getElementById("StTime").innerHTML = Date();
                     }
                     else{
                         // ERROR
+			    alert("Error saving detail data +.")
                     }
                 }) 
   	} else if ($button.text() == "-"){
@@ -125,6 +126,7 @@ document.getElementById("StTime").innerHTML = Date();
                     }
                     else{
                         // ERROR
+			    alert("Error saving detail data - .")
                     }
                 }) 
 	    } else {
